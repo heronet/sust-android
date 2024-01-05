@@ -1,8 +1,8 @@
-package com.heronet.sust.feature.campus.util
+package com.heronet.sust.navigation.util
 
 import androidx.compose.ui.graphics.vector.ImageVector
 
-data class CampusNavItem(
+data class NavItem(
     val route: String,
     val selectedIcon: ImageVector,
     val unselectedIcon: ImageVector,
