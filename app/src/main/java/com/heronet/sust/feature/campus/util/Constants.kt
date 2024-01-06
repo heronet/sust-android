@@ -18,40 +18,25 @@ import com.heronet.sust.feature.campus.domain.model.School
 object Constants {
     val campusItems = listOf(
         CampusItemType(
-            "Schools",
+            CampusRoutes.Schools.name,
             "School of Physical, Applied, Life Sciences etc.",
             Icons.Default.Apartment
         ),
         CampusItemType(
-            "Offices",
+            CampusRoutes.Offices.name,
             "Offices of VC, Treasurer, Library etc.",
             Icons.Default.MeetingRoom,
         ),
         CampusItemType(
-            "Centers",
+            CampusRoutes.Centers.name,
             "Computer and Information Center, Research Center etc.",
             Icons.Default.Hub,
         ),
         CampusItemType(
-            "Halls",
+            CampusRoutes.Halls.name,
             "Shah Paran Hall, First Ladies Hall etc.",
             Icons.Default.NightShelter,
         )
-    )
-
-    val departments = listOf(
-        Department(
-            title = "Physics",
-            school = "School of Physical Sciences",
-            description = "Desc",
-            employees = listOf()
-        ),
-        Department(
-            title = "CSE",
-            school = "School of Physical Sciences",
-            description = "Desc",
-            employees = listOf()
-        ),
     )
 
     val schools = listOf(
