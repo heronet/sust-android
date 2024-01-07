@@ -5,7 +5,7 @@ import androidx.room.Room
 import com.heronet.sust.feature.campus.data.local.database.CampusDatabase
 import com.heronet.sust.feature.campus.data.repository.CampusRepositoryImpl
 import com.heronet.sust.feature.campus.domain.repository.CampusRepository
-import com.heronet.sust.feature.campus.usecase.AddTeacher
+import com.heronet.sust.feature.campus.usecase.AddSchoolEmployee
 import com.heronet.sust.feature.campus.usecase.CampusUseCases
 import com.heronet.sust.feature.campus.usecase.GetCenters
 import com.heronet.sust.feature.campus.usecase.GetDepartments
@@ -40,7 +40,7 @@ object CampusModule {
     fun provideCampusUseCases(repository: CampusRepository) = CampusUseCases(
         getSchools = GetSchools(repository),
         getDepartments = GetDepartments(repository),
-        addTeacher = AddTeacher(repository),
+        addSchoolEmployee = AddSchoolEmployee(repository),
         getHalls = GetHalls(repository),
         getOffices = GetOffices(repository),
         getCenters = GetCenters(repository)

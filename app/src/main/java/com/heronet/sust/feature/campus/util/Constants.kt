@@ -256,6 +256,7 @@ object Constants {
         ),
     )
 
+    // Offices
     val offices = listOf(
         CampusCategory(
             title = "Vice Chancellor",
@@ -264,6 +265,7 @@ object Constants {
         )
     )
 
+    // Centers
     val centers = listOf(
         CampusCategory(
             title = "IQAC",
