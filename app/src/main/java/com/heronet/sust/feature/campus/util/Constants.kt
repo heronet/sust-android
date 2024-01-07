@@ -258,16 +258,16 @@ object Constants {
 
     val offices = listOf(
         CampusCategory(
-            title = "",
-            description = "",
+            title = "Vice Chancellor",
+            description = "good place to die",
             imageVector = Icons.Default.Person
         )
     )
 
     val centers = listOf(
         CampusCategory(
-            title = "",
-            description = "",
+            title = "IQAC",
+            description = "AQ",
             imageVector = Icons.Default.CenterFocusStrong
         )
     )

@@ -4,7 +4,9 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
+import com.heronet.sust.feature.campus.presentation.center.centersNav
 import com.heronet.sust.feature.campus.presentation.hall.hallsNav
+import com.heronet.sust.feature.campus.presentation.office.officesNav
 import com.heronet.sust.feature.campus.presentation.school.schoolsNav
 import com.heronet.sust.navigation.util.MainRoutes
 
@@ -18,6 +20,8 @@ fun NavGraphBuilder.campusNav(navController: NavHostController) {
         }
         // Graphs
         schoolsNav(navController)
+        officesNav(navController)
+        centersNav(navController)
         hallsNav(navController)
     }
 }

@@ -1,4 +1,4 @@
-package com.heronet.sust.feature.campus.presentation.school
+package com.heronet.sust.feature.campus.presentation.center
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
@@ -14,22 +14,19 @@ import com.heronet.sust.feature.campus.util.CampusRoutes
 import com.heronet.sust.navigation.util.MainRoutes
 
 @Composable
-fun SchoolsScreen(navController: NavHostController) {
+fun CentersScreen(navController: NavHostController) {
     val campusViewModel = hiltViewModel<CampusViewModel>()
-    val schools = remember {
-        campusViewModel.getSchools()
+    val centers = remember {
+        campusViewModel.getCenters()
     }
 
     LazyColumn(
         modifier = Modifier.fillMaxSize()
     ) {
-        items(schools) { school ->
-            CategoryItem(
-                school,
-                onClick = {
-                    navController.navigate("${MainRoutes.Campus.route}/${CampusRoutes.Schools.route}/${school.title}")
-                }
-            )
+        items(centers) { center ->
+            CategoryItem(center) {
+                navController.navigate("${MainRoutes.Campus.route}/${CampusRoutes.Centers.route}/${center.title}")
+            }
         }
     }
 }
