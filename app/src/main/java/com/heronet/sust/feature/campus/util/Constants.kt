@@ -8,7 +8,6 @@ import androidx.compose.material.icons.filled.Hub
 import androidx.compose.material.icons.filled.MeetingRoom
 import androidx.compose.material.icons.filled.Memory
 import androidx.compose.material.icons.filled.NightShelter
-import androidx.compose.material.icons.filled.Payments
 import androidx.compose.material.icons.filled.PriceChange
 import androidx.compose.material.icons.filled.RocketLaunch
 import androidx.compose.material.icons.filled.SocialDistance
@@ -178,7 +177,47 @@ object Constants {
             school = CampusSchools.ManagementAndBusinessAdministration.title
         ),
 
-        // D building shit (Social Sciences)
+        // Social Sciences
+        Department(
+            title = "Anthropology",
+            description = "The Department of Anthropology at SUST, established in 1995, has evolved into one of Bangladesh's oldest and most successful programs. Offering Bachelor and Master degrees since 1998, it has graduated over a thousand students. Hosting renowned anthropologists, the department has excelled in research, contributing significantly to social sciences. Emphasizing academic excellence, it aims to produce national leaders, blending tradition with innovation. Committed to values-based education, the department fosters an optimal learning environment, striving to expand knowledge and culture. With a rich heritage, it actively engages in mission-driven scholarship, promoting research, creative activities, and robust undergraduate and graduate education.",
+            school = CampusSchools.SocialSciences.title
+        ),
+        Department(
+            title = "Bengali",
+            description = "The Bengali Department at SUST commenced in 2005-2006, aiming to promote understanding of Bengali culture, history, society, and literature. Initially, two short courses were integrated into all departments for language and grammar development. The expanded course, 'Bengali Language and Literature (Theoretical),' focuses on enhancing students' verbal and practical skills. Catering to English department students, 'BNG-103 Introduction to Bengali Literature' imparts basic knowledge. Sylhet, known for its blend of Hazrat Shah Jalal's ideals and Sri Chaitanya, enriches Bengali literature with folk songs and writings. The department actively engages in teaching, research, and publishing the annual research journal 'Language-Literature Lessons.' As of June 2022, it has produced 702 graduates, 485 postgraduates, and 1 MPhil degree, aiming to foster innovative thinking and life shaping through literature.",
+            school = CampusSchools.SocialSciences.title
+        ),
+        Department(
+            title = "Economics",
+            description = "The Department of Economics at Shahjalal University of Science & Technology (SUST) in Sylhet, Bangladesh, celebrated its 25th academic year in 2015. With 16 faculty members, over 300 undergraduate students, and 50 graduate students, the department has pioneered integrated course systems, semester systems, and laboratory-based training in quantitative economics in Bangladesh. Notably, its students have been accepted into higher degree programs worldwide and hold prestigious positions. The faculty has secured research grants from the University Grants Commission (UGC), Bangladesh, and conducted projects funded by organizations like the Food and Agricultural Organization (FAO) and International Finance Corporation (IFC). Several faculty members have received awards for research and made notable contributions in high-ranked journals, strengthening the department's global reputation. Many alumni are actively contributing to academia, research, and socio-economic development in various capacities.",
+            school = CampusSchools.SocialSciences.title
+        ),
+        Department(
+            title = "English",
+            description = "The Department of English at SUST, initiated in 2000, offers both Bachelor's and Master's programs, graduating over 500 students employed in diverse sectors. With 17 faculty members and a limited intake of 71 students per BA cycle, the department emphasizes literature, culture, language, and applied linguistics. Currently hosting around 400 students, it aims to equip them with communication skills, analytical abilities in literary expressions, and knowledge of TESOL and applied linguistics. The department envisions becoming a center for excellence, producing graduates with values and intellectuality, fostering a sense of community, and serving as a research hub to generate new knowledge.",
+            school = CampusSchools.SocialSciences.title
+        ),
+        Department(
+            title = "Political Studies",
+            description = "Established in 1993, the Department of Political Studies at SUST began as \"Political Studies and Public Affairs,\" evolving to \"Political Studies and Public Administration\" in 2002. Bifurcated in 2005 into \"Political Studies\" and \"Public Administration,\" it has since thrived as Political Studies. Offering undergraduate, graduate, M.Phil., and Ph.D. programs, the department emphasizes practical experiences such as internships and mandates monograph/thesis completion at the Master's level. With a faculty of 17, including highly qualified individuals, the department's graduates hold diverse roles in public and private sectors. Engaging in extracurricular and charity activities, the department is renowned for its academic prowess and societal contributions.",
+            school = CampusSchools.SocialSciences.title
+        ),
+        Department(
+            title = "Public Administration",
+            description = "The Department of Public Administration at Shahjalal University of Science & Technology, established in 2005, offers a BSS Honours degree. Emphasizing multidimensional perspectives, the program equips students with skills in public management, healthcare, non-profit, and environmental administration. Focused on theoretical and practical aspects, it addresses contemporary challenges in public organization administration, human resources, and public finance while emphasizing values and ethics. Covering areas like healthcare management, public policy analysis, gender issues, and more, the program fosters interdisciplinary communication and aims to produce competent administrators contributing to global development. Students are expected to demonstrate proficiency in effective communication across disciplines and diverse audiences.",
+            school = CampusSchools.SocialSciences.title
+        ),
+        Department(
+            title = "Social Work",
+            description = "The Department of Social Work at SUST began its academic program in 1993-1994 to meet the demand for professional social workers in Sylhet. With three faculty members and two non-academic staff, Professor M. Habibur Rahman, later the Vice-Chancellor, served as the founding head. The department's effective international training and team spirit garnered attention from development organizations and social work academia. The first MSS graduates in 1997 made significant contributions locally and nationally, establishing the department's reputation. The \"Social Work Family\" tradition, initiated by faculty, staff, and students, continues to shape the department's identity and commitment to community development at SUST.",
+            school = CampusSchools.SocialSciences.title
+        ),
+        Department(
+            title = "Sociology",
+            description = "Established in 1992-93, the Department of Sociology at Shahjalal University of Science and Technology (SUST) is one of the oldest and esteemed departments, having conferred degrees to approximately 1315 students. Graduates have excelled globally, pursuing higher degrees and establishing themselves in various fields such as education, bureaucracy, finance, health, and NGOs. The department offers Bachelors, Masters (General and Thesis), M.Phil, and Ph.D. degrees, covering diverse sociological issues. With a commitment to theoretical knowledge and applied skills, faculty members actively engage in research. The department, aiming for vibrant teaching and research, encourages sociological thinking and addresses pressing local, national, and international issues.",
+            school = CampusSchools.SocialSciences.title
+        )
     )
 
 }
