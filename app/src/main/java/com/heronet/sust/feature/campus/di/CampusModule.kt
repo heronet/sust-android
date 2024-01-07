@@ -30,7 +30,8 @@ object CampusModule {
 
     @Provides
     @Singleton
-    fun provideCampusRepository(db: CampusDatabase) = CampusRepositoryImpl(db.campusDao)
+    fun provideCampusRepository(db: CampusDatabase): CampusRepository =
+        CampusRepositoryImpl(db.campusDao)
 
     @Provides
     @Singleton

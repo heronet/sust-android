@@ -16,6 +16,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.heronet.sust.feature.campus.util.CampusItemType
@@ -29,7 +30,7 @@ fun CampusScreen(navController: NavHostController) {
     ) {
         items(Constants.campusItems) { item ->
             CampusItem(item) {
-                navController.navigate("${MainRoutes.Campus.name}/${item.title}")
+                navController.navigate("${MainRoutes.Campus.route}/${item.title}")
             }
         }
     }
@@ -55,9 +56,15 @@ fun CampusItem(item: CampusItemType, onClick: () -> Unit) {
             Text(
                 text = item.title,
                 style = MaterialTheme.typography.titleMedium,
-                modifier = Modifier.padding(bottom = 4.dp)
+                modifier = Modifier.padding(bottom = 4.dp),
+                overflow = TextOverflow.Ellipsis
             )
-            Text(text = item.description, style = MaterialTheme.typography.bodySmall)
+            Text(
+                text = item.description,
+                style = MaterialTheme.typography.bodySmall,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
+            )
         }
     }
 }

@@ -12,15 +12,15 @@ import androidx.compose.material.icons.outlined.Timeline
 
 object Constants {
     val navItems = listOf(
-        NavItem(MainRoutes.Campus.name, Icons.Filled.School, Icons.Outlined.School),
-        NavItem(MainRoutes.Updates.name, Icons.Filled.Timeline, Icons.Outlined.Timeline),
+        NavItem(MainRoutes.Campus.route, Icons.Filled.School, Icons.Outlined.School),
+        NavItem(MainRoutes.Updates.route, Icons.Filled.Timeline, Icons.Outlined.Timeline),
         NavItem(
-            MainRoutes.Calendar.name,
+            MainRoutes.Calendar.route,
             Icons.Filled.CalendarMonth,
             Icons.Outlined.CalendarMonth
         ),
         NavItem(
-            MainRoutes.Bus.name,
+            MainRoutes.Bus.route,
             Icons.Filled.DirectionsBus,
             Icons.Outlined.DirectionsBus
         ),

@@ -10,18 +10,18 @@ import com.heronet.sust.navigation.util.MainRoutes
 
 @Composable
 fun MainNavHost(navController: NavHostController) {
-    NavHost(navController = navController, startDestination = MainRoutes.Campus.name) {
+    NavHost(navController = navController, startDestination = MainRoutes.Campus.route) {
         // Campus Graph
         campusNav(navController = navController)
 
-        composable(MainRoutes.Updates.name) {
-            Text(text = MainRoutes.Updates.name)
+        composable(MainRoutes.Updates.route) {
+            Text(text = MainRoutes.Updates.route)
         }
-        composable(MainRoutes.Calendar.name) {
-            Text(text = MainRoutes.Calendar.name)
+        composable(MainRoutes.Calendar.route) {
+            Text(text = MainRoutes.Calendar.route)
         }
-        composable(MainRoutes.Bus.name) {
-            Text(text = MainRoutes.Bus.name)
+        composable(MainRoutes.Bus.route) {
+            Text(text = MainRoutes.Bus.route)
         }
     }
 }

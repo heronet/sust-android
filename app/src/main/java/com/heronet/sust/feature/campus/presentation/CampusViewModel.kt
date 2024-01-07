@@ -10,28 +10,14 @@ import com.heronet.sust.feature.campus.domain.model.Department
 import com.heronet.sust.feature.campus.domain.model.Employee
 import com.heronet.sust.feature.campus.domain.repository.CampusRepository
 import com.heronet.sust.feature.campus.usecase.CampusUseCases
+import com.heronet.sust.feature.campus.util.Constants
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class CampusViewModel(
+@HiltViewModel
+class CampusViewModel @Inject constructor(
     private val useCases: CampusUseCases
 ): ViewModel() {
-    var departments by mutableStateOf(listOf<Department>())
-        private set
 
-    fun getDepartments() {
-        viewModelScope.launch {
-            departments = useCases.getDepartments()
-        }
-    }
-
-    fun addDepartment() {
-        viewModelScope.launch {
-            val department = Department(
-                title = "Physics",
-                description = "Department of phy",
-                school = "Physical Sciences"
-            )
-            useCases.addDepartment(department)
-        }
-    }
 }

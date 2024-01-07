@@ -3,6 +3,7 @@ package com.heronet.sust.feature.campus.data.repository
 import com.heronet.sust.feature.campus.data.local.database.CampusDao
 import com.heronet.sust.feature.campus.domain.model.Department
 import com.heronet.sust.feature.campus.domain.model.Employee
+import com.heronet.sust.feature.campus.domain.model.School
 import com.heronet.sust.feature.campus.domain.repository.CampusRepository
 
 class CampusRepositoryImpl(
@@ -12,8 +13,12 @@ class CampusRepositoryImpl(
         return dao.getDepartmentWithEmployees(id).employees
     }
 
-    override suspend fun getDepartments(): List<Department> {
-        return dao.getDepartments()
+    override suspend fun getDepartments(school: School?): List<Department> {
+        return if (school != null) {
+            dao.getDepartmentsBySchool(school.title)
+        } else {
+            dao.getDepartments()
+        }
     }
 
     override suspend fun addDepartment(department: Department) {
