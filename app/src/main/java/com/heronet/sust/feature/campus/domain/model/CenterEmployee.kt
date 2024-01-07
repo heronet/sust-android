@@ -1,12 +1,9 @@
 package com.heronet.sust.feature.campus.domain.model
 
-import androidx.room.Entity
-
-@Entity
-data class OfficeEmployee (
+data class CenterEmployee(
     val name: String,
     val jobTitle: String,
     val phone: String,
     val email: String,
-    val officeName: String
+    val centerName: String
 )
