@@ -3,7 +3,6 @@ package com.heronet.sust.feature.campus.presentation.school
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -21,12 +20,17 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.heronet.sust.feature.campus.domain.model.Department
-import com.heronet.sust.feature.campus.util.Constants
+import com.heronet.sust.feature.campus.presentation.CampusViewModel
 
 @Composable
 fun DepartmentsScreen(schoolName: String) {
-    val departments = Constants.departments.filter { dept -> dept.school == schoolName }
+    val campusViewModel = hiltViewModel<CampusViewModel>()
+    val departments = remember {
+        campusViewModel.getDepartments(schoolName)
+    }
+
     LazyColumn(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -34,7 +38,6 @@ fun DepartmentsScreen(schoolName: String) {
             Department(department = it)
         }
     }
-
 }
 
 @Composable
