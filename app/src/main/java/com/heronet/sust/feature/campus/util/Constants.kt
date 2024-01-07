@@ -5,11 +5,11 @@ import androidx.compose.material.icons.filled.Agriculture
 import androidx.compose.material.icons.filled.Apartment
 import androidx.compose.material.icons.filled.Biotech
 import androidx.compose.material.icons.filled.Domain
+import androidx.compose.material.icons.filled.Group
 import androidx.compose.material.icons.filled.Hub
 import androidx.compose.material.icons.filled.MeetingRoom
 import androidx.compose.material.icons.filled.Memory
 import androidx.compose.material.icons.filled.NightShelter
-import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.PriceChange
 import androidx.compose.material.icons.filled.RocketLaunch
 import androidx.compose.material.icons.filled.SocialDistance
@@ -259,8 +259,123 @@ object Constants {
     val offices = listOf(
         CampusCategory(
             title = "Vice Chancellor",
-            description = "good place to die",
-            imageVector = Icons.Default.Person
+            description = "Office of the Vice Chancellor",
+            imageVector = Icons.Default.Group
+        ),
+        CampusCategory(
+            title = "Pro Vice Chancellor",
+            description = "Office of the Pro Vice Chancellor",
+            imageVector = Icons.Default.Group
+        ),
+        CampusCategory(
+            title = "Treasurer",
+            description = "Office of the Treasurer",
+            imageVector = Icons.Default.Group
+        ),
+        CampusCategory(
+            title = "Registrar",
+            description = "Office of the Registrar",
+            imageVector = Icons.Default.Group
+        ),
+        CampusCategory(
+            title = "Inspector of Colleges",
+            description = "Office of the Inspector of Colleges",
+            imageVector = Icons.Default.Group
+        ),
+        CampusCategory(
+            title = "Central Library",
+            description = "Central Library",
+            imageVector = Icons.Default.Group
+        ),
+        CampusCategory(
+            title = "Director of Accounts",
+            description = "Office of the Director of Accounts",
+            imageVector = Icons.Default.Group
+        ),
+        CampusCategory(
+            title = "Director of Planning and Development",
+            description = "Office of the Director of Planning and Development",
+            imageVector = Icons.Default.Group
+        ),
+        CampusCategory(
+            title = "Controller of Examinations",
+            description = "Office of the Controller of Examinations",
+            imageVector = Icons.Default.Group
+        ),
+        CampusCategory(
+            title = "Chief Engineer",
+            description = "Office of the Chief Engineer",
+            imageVector = Icons.Default.Group
+        ),
+        CampusCategory(
+            title = "Medical Center",
+            description = "Medical Center",
+            imageVector = Icons.Default.Group
+        ),
+        CampusCategory(
+            title = "Physical Education",
+            description = "Office of the Physical Education",
+            imageVector = Icons.Default.Group
+        ),
+        CampusCategory(
+            title = "Director of Student Counseling and Guidance",
+            description = "Office of the Director of Student Counseling and Guidance",
+            imageVector = Icons.Default.Group
+        ),
+        CampusCategory(
+            title = "Sexual Harassment",
+            description = "Compliant Committee for Sexual Harassment",
+            imageVector = Icons.Default.Group
+        ),
+        CampusCategory(
+            title = "The Dean, ${CampusSchools.PhysicalSciences.title}",
+            description = "Office of the ${CampusSchools.PhysicalSciences.title}",
+            imageVector = Icons.Default.Group
+        ),
+        CampusCategory(
+            title = "The Dean, ${CampusSchools.AppliedSciencesAndTechnology.title}",
+            description = "Office of the ${CampusSchools.AppliedSciencesAndTechnology.title}",
+            imageVector = Icons.Default.Group
+        ),
+        CampusCategory(
+            title = "The Dean, ${CampusSchools.LifeSciences.title}",
+            description = "Office of the ${CampusSchools.LifeSciences.title}",
+            imageVector = Icons.Default.Group
+        ),
+        CampusCategory(
+            title = "The Dean, ${CampusSchools.AgricultureAndMineralSciences.title}",
+            description = "Office of the ${CampusSchools.AgricultureAndMineralSciences.title}",
+            imageVector = Icons.Default.Group
+        ),
+        CampusCategory(
+            title = "The Dean, ${CampusSchools.ManagementAndBusinessAdministration.title}",
+            description = "Office of the ${CampusSchools.ManagementAndBusinessAdministration.title}",
+            imageVector = Icons.Default.Group
+        ),
+        CampusCategory(
+            title = "The Dean, ${CampusSchools.SocialSciences.title}",
+            description = "Office of the ${CampusSchools.SocialSciences.title}",
+            imageVector = Icons.Default.Group
+        ),
+        CampusCategory(
+            title = "Transport Administrator",
+            description = "Office of the Transport Administrator",
+            imageVector = Icons.Default.Group
+        ),
+        CampusCategory(
+            title = "Central Mosque",
+            description = "Office of the Central Mosque",
+            imageVector = Icons.Default.Group
+        ),
+        CampusCategory(
+            title = "BNCC",
+            description = "Office of the BNCC",
+            imageVector = Icons.Default.Group
+        ),
+        CampusCategory(
+            title = "Shahjalal University School",
+            description = "Office of the Shahjalal University School",
+            imageVector = Icons.Default.Group
         )
     )
 
