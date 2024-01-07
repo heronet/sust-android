@@ -1,20 +1,17 @@
 package com.heronet.sust.feature.campus.domain.repository
 
-import com.heronet.sust.feature.campus.domain.model.Center
 import com.heronet.sust.feature.campus.domain.model.Department
 import com.heronet.sust.feature.campus.domain.model.Teacher
-import com.heronet.sust.feature.campus.domain.model.Hall
-import com.heronet.sust.feature.campus.domain.model.Office
-import com.heronet.sust.feature.campus.domain.model.School
+import com.heronet.sust.feature.campus.util.CampusCategory
 
 interface CampusRepository {
-    fun getSchools(): List<School>
+    fun getSchools(): List<CampusCategory>
     fun getDepartments(school: String): List<Department>
     suspend fun getTeachers(department: String): List<Teacher>
     suspend fun addTeacher(teacher: Teacher)
 
-    fun getHalls(): List<Hall>
+    fun getHalls(): List<CampusCategory>
 
-    fun getOffices(): List<Office>
-    fun getCenters(): List<Center>
+    fun getOffices(): List<CampusCategory>
+    fun getCenters(): List<CampusCategory>
 }

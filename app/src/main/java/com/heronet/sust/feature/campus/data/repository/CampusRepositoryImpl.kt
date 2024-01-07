@@ -1,11 +1,9 @@
 package com.heronet.sust.feature.campus.data.repository
 
 import com.heronet.sust.feature.campus.data.local.database.CampusDao
-import com.heronet.sust.feature.campus.domain.model.Center
 import com.heronet.sust.feature.campus.domain.model.Teacher
-import com.heronet.sust.feature.campus.domain.model.Hall
-import com.heronet.sust.feature.campus.domain.model.Office
 import com.heronet.sust.feature.campus.domain.repository.CampusRepository
+import com.heronet.sust.feature.campus.util.CampusCategory
 import com.heronet.sust.feature.campus.util.Constants
 
 class CampusRepositoryImpl(
@@ -23,8 +21,8 @@ class CampusRepositoryImpl(
         dao.insertTeacher(teacher)
     }
 
-    override fun getHalls(): List<Hall> = Constants.halls
-    override fun getOffices(): List<Office> = Constants.offices
-    override fun getCenters(): List<Center> = Constants.centers
+    override fun getHalls(): List<CampusCategory> = Constants.halls
+    override fun getOffices(): List<CampusCategory> = Constants.offices
+    override fun getCenters(): List<CampusCategory> = Constants.centers
 
 }

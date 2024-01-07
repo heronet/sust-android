@@ -5,6 +5,7 @@ import androidx.compose.material.icons.filled.Agriculture
 import androidx.compose.material.icons.filled.Apartment
 import androidx.compose.material.icons.filled.Biotech
 import androidx.compose.material.icons.filled.CenterFocusStrong
+import androidx.compose.material.icons.filled.Domain
 import androidx.compose.material.icons.filled.Hub
 import androidx.compose.material.icons.filled.MeetingRoom
 import androidx.compose.material.icons.filled.Memory
@@ -13,30 +14,26 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.PriceChange
 import androidx.compose.material.icons.filled.RocketLaunch
 import androidx.compose.material.icons.filled.SocialDistance
-import com.heronet.sust.feature.campus.domain.model.Center
 import com.heronet.sust.feature.campus.domain.model.Department
-import com.heronet.sust.feature.campus.domain.model.Hall
-import com.heronet.sust.feature.campus.domain.model.Office
-import com.heronet.sust.feature.campus.domain.model.School
 
 object Constants {
     val campusItems = listOf(
-        CampusItemType(
+        CampusCategory(
             CampusRoutes.Schools.route,
             "School of Physical, Applied, Life Sciences etc.",
             Icons.Default.Apartment
         ),
-        CampusItemType(
+        CampusCategory(
             CampusRoutes.Offices.route,
             "Offices of VC, Treasurer, Library etc.",
             Icons.Default.MeetingRoom,
         ),
-        CampusItemType(
+        CampusCategory(
             CampusRoutes.Centers.route,
             "Computer and Information Center, Research Center etc.",
             Icons.Default.Hub,
         ),
-        CampusItemType(
+        CampusCategory(
             CampusRoutes.Halls.route,
             "Shah Paran Hall, First Ladies Hall etc.",
             Icons.Default.NightShelter,
@@ -44,32 +41,32 @@ object Constants {
     )
 
     val schools = listOf(
-        School(
+        CampusCategory(
             title = CampusSchools.PhysicalSciences.title,
             imageVector = Icons.Default.RocketLaunch,
             description = "Physics, Chemistry, Mathematics etc."
         ),
-        School(
+        CampusCategory(
             title = CampusSchools.AppliedSciencesAndTechnology.title,
             imageVector = Icons.Default.Memory,
             description = "CSE, EEE, CEP etc."
         ),
-        School(
+        CampusCategory(
             title = CampusSchools.LifeSciences.title,
             imageVector = Icons.Default.Biotech,
             description = "GEB, BMB etc."
         ),
-        School(
+        CampusCategory(
             title = CampusSchools.ManagementAndBusinessAdministration.title,
             imageVector = Icons.Default.PriceChange,
             description = "Departments like BBA"
         ),
-        School(
+        CampusCategory(
             title = CampusSchools.AgricultureAndMineralSciences.title,
             imageVector = Icons.Default.Agriculture,
             description = "FES, GEE etc."
         ),
-        School(
+        CampusCategory(
             title = CampusSchools.SocialSciences.title,
             imageVector = Icons.Default.SocialDistance,
             description = "PSS, PAD, SCW etc."
@@ -224,18 +221,43 @@ object Constants {
             school = CampusSchools.SocialSciences.title
         )
     )
+
     // Halls
     val halls = listOf(
-        Hall(title = "Shah Paran Hall", description = "1st Gents Hall"),
-        Hall(title = "Bangabandhu Sheikh Mujibur Rahman Hall", description = "2nd Gents Hall"),
-        Hall(title = "Syed Mujtaba Ali Hall", description = "3rd Gents Hall"),
-        Hall(title = "Shahid Jononi Jahanara Imam Hall", description = "1st Ladies Hall"),
-        Hall(title = "Begum Sirajunnesa Chowdhury Hall", description = "2nd Ladies Hall"),
-        Hall(title = "Begum Fazilatunnesa Mujib Hall", description = "3rd Ladies Hall"),
+        CampusCategory(
+            title = "Shah Paran Hall",
+            description = "1st Gents Hall",
+            imageVector = Icons.Default.Domain
+        ),
+        CampusCategory(
+            title = "Bangabandhu Sheikh Mujibur Rahman Hall",
+            description = "2nd Gents Hall",
+            imageVector = Icons.Default.Domain
+        ),
+        CampusCategory(
+            title = "Syed Mujtaba Ali Hall",
+            description = "3rd Gents Hall",
+            imageVector = Icons.Default.Domain
+        ),
+        CampusCategory(
+            title = "Shahid Jononi Jahanara Imam Hall",
+            description = "1st Ladies Hall",
+            imageVector = Icons.Default.Domain
+        ),
+        CampusCategory(
+            title = "Begum Sirajunnesa Chowdhury Hall",
+            description = "2nd Ladies Hall",
+            imageVector = Icons.Default.Domain
+        ),
+        CampusCategory(
+            title = "Begum Fazilatunnesa Mujib Hall",
+            description = "3rd Ladies Hall",
+            imageVector = Icons.Default.Domain
+        ),
     )
 
     val offices = listOf(
-        Office(
+        CampusCategory(
             title = "",
             description = "",
             imageVector = Icons.Default.Person
@@ -243,7 +265,7 @@ object Constants {
     )
 
     val centers = listOf(
-        Center(
+        CampusCategory(
             title = "",
             description = "",
             imageVector = Icons.Default.CenterFocusStrong

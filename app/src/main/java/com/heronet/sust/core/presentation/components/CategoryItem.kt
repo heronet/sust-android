@@ -13,13 +13,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.heronet.sust.feature.campus.util.CampusCategory
 
 
 @Composable
-fun SimpleClickableItem(title: String, description: String, imageVector: ImageVector, onClick: () -> Unit) {
+fun CategoryItem(category: CampusCategory, onClick: () -> Unit) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
@@ -27,8 +27,8 @@ fun SimpleClickableItem(title: String, description: String, imageVector: ImageVe
             .clickable { onClick() }
     ) {
         Icon(
-            imageVector = imageVector,
-            contentDescription = title,
+            imageVector = category.imageVector,
+            contentDescription = category.title,
             modifier = Modifier
                 .width(84.dp)
                 .height(84.dp)
@@ -36,12 +36,12 @@ fun SimpleClickableItem(title: String, description: String, imageVector: ImageVe
         )
         Column {
             Text(
-                text = title,
+                text = category.title,
                 style = MaterialTheme.typography.titleMedium,
                 modifier = Modifier.padding(bottom = 4.dp)
             )
             Text(
-                text = description,
+                text = category.description,
                 style = MaterialTheme.typography.bodySmall,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis

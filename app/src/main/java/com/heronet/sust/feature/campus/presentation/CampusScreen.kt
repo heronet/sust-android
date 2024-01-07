@@ -6,7 +6,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
-import com.heronet.sust.core.presentation.components.SimpleClickableItem
+import com.heronet.sust.core.presentation.components.CategoryItem
 import com.heronet.sust.feature.campus.util.Constants
 import com.heronet.sust.navigation.util.MainRoutes
 
@@ -16,11 +16,7 @@ fun CampusScreen(navController: NavHostController) {
         modifier = Modifier.fillMaxSize()
     ) {
         items(Constants.campusItems) { item ->
-            SimpleClickableItem(
-                title = item.title,
-                description = item.description,
-                imageVector = item.imageVector
-            ) {
+            CategoryItem(item) {
                 navController.navigate("${MainRoutes.Campus.route}/${item.title}")
             }
         }

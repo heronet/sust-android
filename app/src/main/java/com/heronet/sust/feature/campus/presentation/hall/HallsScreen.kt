@@ -3,16 +3,12 @@ package com.heronet.sust.feature.campus.presentation.hall
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Bed
-import androidx.compose.material.icons.filled.Domain
-import androidx.compose.material.icons.filled.Hotel
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import com.heronet.sust.core.presentation.components.SimpleClickableItem
+import com.heronet.sust.core.presentation.components.CategoryItem
 import com.heronet.sust.feature.campus.presentation.CampusViewModel
 import com.heronet.sust.feature.campus.util.CampusRoutes
 import com.heronet.sust.navigation.util.MainRoutes
@@ -29,11 +25,7 @@ fun HallsScreen(navHostController: NavHostController) {
         modifier = Modifier.fillMaxSize()
     ) {
         items(halls) { hall ->
-            SimpleClickableItem(
-                title = hall.title,
-                description = hall.description,
-                imageVector = Icons.Default.Domain
-            ) {
+            CategoryItem(hall) {
                 navHostController.navigate("${MainRoutes.Campus.route}/${CampusRoutes.Halls.route}/${hall.title}")
             }
         }
