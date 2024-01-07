@@ -1,12 +1,12 @@
 package com.heronet.sust.feature.campus.usecase
 
-import com.heronet.sust.feature.campus.domain.model.Employee
+import com.heronet.sust.feature.campus.domain.model.Teacher
 import com.heronet.sust.feature.campus.domain.repository.CampusRepository
 
-class AddEmployee(
+class AddTeacher(
     private val repository: CampusRepository
 ) {
-    suspend operator fun invoke(employee: Employee) {
-        repository.addEmployee(employee)
+    suspend operator fun invoke(teacher: Teacher) {
+        repository.addTeacher(teacher)
     }
 }

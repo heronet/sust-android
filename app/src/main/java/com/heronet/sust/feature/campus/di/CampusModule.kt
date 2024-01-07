@@ -5,10 +5,12 @@ import androidx.room.Room
 import com.heronet.sust.feature.campus.data.local.database.CampusDatabase
 import com.heronet.sust.feature.campus.data.repository.CampusRepositoryImpl
 import com.heronet.sust.feature.campus.domain.repository.CampusRepository
-import com.heronet.sust.feature.campus.usecase.AddEmployee
+import com.heronet.sust.feature.campus.usecase.AddTeacher
 import com.heronet.sust.feature.campus.usecase.CampusUseCases
+import com.heronet.sust.feature.campus.usecase.GetCenters
 import com.heronet.sust.feature.campus.usecase.GetDepartments
 import com.heronet.sust.feature.campus.usecase.GetHalls
+import com.heronet.sust.feature.campus.usecase.GetOffices
 import com.heronet.sust.feature.campus.usecase.GetSchools
 import dagger.Module
 import dagger.Provides
@@ -38,7 +40,9 @@ object CampusModule {
     fun provideCampusUseCases(repository: CampusRepository) = CampusUseCases(
         getSchools = GetSchools(repository),
         getDepartments = GetDepartments(repository),
-        addEmployee = AddEmployee(repository),
-        getHalls = GetHalls(repository)
+        addTeacher = AddTeacher(repository),
+        getHalls = GetHalls(repository),
+        getOffices = GetOffices(repository),
+        getCenters = GetCenters(repository)
     )
 }

@@ -2,9 +2,9 @@ package com.heronet.sust.feature.campus.data.local.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.heronet.sust.feature.campus.domain.model.Employee
+import com.heronet.sust.feature.campus.domain.model.Teacher
 
-@Database(entities = [Employee::class], version = 1)
+@Database(entities = [Teacher::class], version = 1)
 abstract class CampusDatabase: RoomDatabase() {
     abstract val campusDao: CampusDao
 

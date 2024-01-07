@@ -4,13 +4,13 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.heronet.sust.feature.campus.domain.model.Employee
+import com.heronet.sust.feature.campus.domain.model.Teacher
 
 @Dao
 interface CampusDao {
-    @Query("SELECT * FROM employees WHERE affiliation = :affiliation")
-    suspend fun getEmployees(affiliation: String): List<Employee>
+    @Query("SELECT * FROM teachers WHERE departmentName = :department")
+    suspend fun getTeachers(department: String): List<Teacher>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertEmployee(employee: Employee)
+    suspend fun insertTeacher(teacher: Teacher)
 }

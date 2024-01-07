@@ -16,4 +16,8 @@ class CampusViewModel @Inject constructor(
     }
 
     fun getHalls() = useCases.getHalls()
+
+    fun getOffices() = useCases.getOffices()
+
+    fun getCenters() = useCases.getCenters()
 }
