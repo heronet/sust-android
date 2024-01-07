@@ -12,6 +12,7 @@ import androidx.compose.material.icons.filled.PriceChange
 import androidx.compose.material.icons.filled.RocketLaunch
 import androidx.compose.material.icons.filled.SocialDistance
 import com.heronet.sust.feature.campus.domain.model.Department
+import com.heronet.sust.feature.campus.domain.model.Hall
 import com.heronet.sust.feature.campus.domain.model.School
 
 object Constants {
@@ -218,6 +219,11 @@ object Constants {
             description = "Established in 1992-93, the Department of Sociology at Shahjalal University of Science and Technology (SUST) is one of the oldest and esteemed departments, having conferred degrees to approximately 1315 students. Graduates have excelled globally, pursuing higher degrees and establishing themselves in various fields such as education, bureaucracy, finance, health, and NGOs. The department offers Bachelors, Masters (General and Thesis), M.Phil, and Ph.D. degrees, covering diverse sociological issues. With a commitment to theoretical knowledge and applied skills, faculty members actively engage in research. The department, aiming for vibrant teaching and research, encourages sociological thinking and addresses pressing local, national, and international issues.",
             school = CampusSchools.SocialSciences.title
         )
+    )
+
+    val halls = listOf(
+        Hall(title = "Shah Paran Hall", description = "1st Boys Hall"),
+        Hall("Bangabandhu Hall", description = "2nd Boys Hall")
     )
 
 }

@@ -11,10 +11,10 @@ import com.heronet.sust.navigation.util.MainRoutes
 
 fun NavGraphBuilder.schoolsNav(navController: NavHostController) {
     navigation(
-        startDestination = "main",
+        startDestination = "${MainRoutes.Campus.route}/${CampusRoutes.Schools.route}/Schools",
         route = "${MainRoutes.Campus.route}/${CampusRoutes.Schools.route}"
     ) {
-        composable("main") {
+        composable("${MainRoutes.Campus.route}/${CampusRoutes.Schools.route}/Schools") {
             SchoolsScreen(navController)
         }
 

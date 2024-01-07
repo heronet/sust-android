@@ -1,8 +1,8 @@
 package com.heronet.sust.navigation.util
 
 sealed class MainRoutes(val route: String) {
-    data object Campus: MainRoutes("campus")
-    data object Updates: MainRoutes("updates")
-    data object Calendar: MainRoutes("calendar")
-    data object Bus: MainRoutes("bus")
+    data object Campus: MainRoutes("Campus")
+    data object Updates: MainRoutes("Updates")
+    data object Calendar: MainRoutes("Calendar")
+    data object Bus: MainRoutes("Bus")
 }

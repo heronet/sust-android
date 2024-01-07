@@ -8,6 +8,7 @@ import com.heronet.sust.feature.campus.domain.repository.CampusRepository
 import com.heronet.sust.feature.campus.usecase.AddEmployee
 import com.heronet.sust.feature.campus.usecase.CampusUseCases
 import com.heronet.sust.feature.campus.usecase.GetDepartments
+import com.heronet.sust.feature.campus.usecase.GetHalls
 import com.heronet.sust.feature.campus.usecase.GetSchools
 import dagger.Module
 import dagger.Provides
@@ -37,6 +38,7 @@ object CampusModule {
     fun provideCampusUseCases(repository: CampusRepository) = CampusUseCases(
         getSchools = GetSchools(repository),
         getDepartments = GetDepartments(repository),
-        addEmployee = AddEmployee(repository)
+        addEmployee = AddEmployee(repository),
+        getHalls = GetHalls(repository)
     )
 }

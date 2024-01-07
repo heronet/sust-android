@@ -2,6 +2,7 @@ package com.heronet.sust.feature.campus.data.repository
 
 import com.heronet.sust.feature.campus.data.local.database.CampusDao
 import com.heronet.sust.feature.campus.domain.model.Employee
+import com.heronet.sust.feature.campus.domain.model.Hall
 import com.heronet.sust.feature.campus.domain.repository.CampusRepository
 import com.heronet.sust.feature.campus.util.Constants
 
@@ -13,11 +14,13 @@ class CampusRepositoryImpl(
     override fun getDepartments(school: String) =
         Constants.departments.filter { dept -> dept.school == school }
 
-    override suspend fun getEmployees(affiliation: String) {
-        dao.getEmployees(affiliation)
+    override suspend fun getEmployees(affiliation: String): List<Employee> {
+        return dao.getEmployees(affiliation)
     }
     override suspend fun addEmployee(employee: Employee) {
         dao.insertEmployee(employee)
     }
+
+    override fun getHalls(): List<Hall> = Constants.halls
 
 }

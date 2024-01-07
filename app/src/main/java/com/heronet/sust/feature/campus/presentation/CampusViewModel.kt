@@ -14,4 +14,6 @@ class CampusViewModel @Inject constructor(
     fun getDepartments(school: String): List<Department> {
         return useCases.getDepartments(school)
     }
+
+    fun getHalls() = useCases.getHalls()
 }

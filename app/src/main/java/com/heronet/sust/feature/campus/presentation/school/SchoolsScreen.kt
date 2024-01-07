@@ -21,6 +21,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import com.heronet.sust.core.presentation.components.SimpleClickableItem
 import com.heronet.sust.feature.campus.domain.model.School
 import com.heronet.sust.feature.campus.presentation.CampusViewModel
 import com.heronet.sust.feature.campus.util.CampusRoutes
@@ -37,9 +38,11 @@ fun SchoolsScreen(navController: NavHostController) {
         modifier = Modifier.fillMaxSize()
     ) {
         items(schools) { school ->
-            SchoolItem(
-                school,
-                onNavigate = {
+            SimpleClickableItem(
+                title = school.title,
+                description = school.description,
+                imageVector = school.imageVector,
+                onClick = {
                     navController.navigate("${MainRoutes.Campus.route}/${CampusRoutes.Schools.route}/${school.title}")
                 }
             )
@@ -47,36 +50,4 @@ fun SchoolsScreen(navController: NavHostController) {
     }
 
 
-}
-
-@Composable
-fun SchoolItem(school: School, onNavigate: () -> Unit) {
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable { onNavigate() }
-    ) {
-        Icon(
-            imageVector = school.imageVector,
-            contentDescription = school.title,
-            modifier = Modifier
-                .width(84.dp)
-                .height(84.dp)
-                .padding(horizontal = 16.dp)
-        )
-        Column {
-            Text(
-                text = school.title,
-                style = MaterialTheme.typography.titleMedium,
-                modifier = Modifier.padding(bottom = 4.dp)
-            )
-            Text(
-                text = school.description,
-                style = MaterialTheme.typography.bodySmall,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis
-            )
-        }
-    }
 }
