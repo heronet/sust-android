@@ -5,5 +5,5 @@ import androidx.compose.ui.graphics.vector.ImageVector
 data class CampusCategory(
     val title: String,
     val description: String,
-    val imageVector: ImageVector
+    val imageVector: ImageVector? = null
 )

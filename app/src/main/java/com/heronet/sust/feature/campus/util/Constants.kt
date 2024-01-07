@@ -4,7 +4,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Agriculture
 import androidx.compose.material.icons.filled.Apartment
 import androidx.compose.material.icons.filled.Biotech
-import androidx.compose.material.icons.filled.CenterFocusStrong
 import androidx.compose.material.icons.filled.Domain
 import androidx.compose.material.icons.filled.Hub
 import androidx.compose.material.icons.filled.MeetingRoom
@@ -268,10 +267,21 @@ object Constants {
     // Centers
     val centers = listOf(
         CampusCategory(
-            title = "IQAC",
-            description = "AQ",
-            imageVector = Icons.Default.CenterFocusStrong
-        )
+            title = "Computer & Information Center",
+            description = "The Computer Center (CC) of SUST, initiated in March 1991, evolved into the Computer & Information Center (CIC) in 1995, broadening its scope to include training programs and maintenance services. Over the years, it became a central hub for computer-related services on campus. With a state-of-the-art IT infrastructure, including a fiber optic network, Tier-3 Data center, and diverse services like cloud computing, virtualization, and surveillance systems, the CIC plays a vital role in fulfilling the IT needs of the university. Noteworthy projects and collaborations, such as \"SAAON\" and BdREN, significantly contributed to SUST's current IT prowess.",
+        ),
+        CampusCategory(
+            title = "Center of Excellence",
+            description = "The Center of Excellence at Shahjalal University of Science and Technology is driven by a vision to conduct advanced research in science and technology, fostering national development and exploring frontier areas of science. It aims to generate and disseminate scientific knowledge through workshops, seminars, and conferences at national and international levels. The center is dedicated to training and developing skilled scientific manpower for future leadership and promoting national and international cooperation in science and technology for overall development. Research across disciplines is encouraged, with a preference for proposals contributing to national interest, economy, and development. The center is facilitated by a committee led by a Director, always open to welcoming researchers."
+        ),
+        CampusCategory(
+            title = "Institutional Quality Assurance Cell",
+            description = "Under the leadership of Prime Minister Sheikh Hasina, the present government is dedicated to transforming higher education through the Higher Education Quality Enhancement Project (HEQEP). HEQEP, funded by the Government of Bangladesh and the World Bank, is executed by the University Grants Commission. Shahjalal University of Science and Technology (SUST), an 'A category' university, established its Institutional Quality Assurance Cell (IQAC) in 2015 as part of HEQEP. IQAC aims to bridge gaps between the current system and stakeholder demands, ensuring international standards of higher education quality. It assesses academic programs, organizes training, seminars, and workshops, and implements strategic improvement plans for sustained educational quality and potential accreditation nationally and internationally."
+        ),
+        CampusCategory(
+            title = "SUST Research Center",
+            description = "Shahjalal University of Science and Technology (SUST) Research Center serves as a dynamic hub for cutting-edge research endeavors. Established to advance scientific exploration, the center fosters innovation across diverse disciplines, encompassing pure, natural, and applied sciences and technology. Under the guidance of accomplished researchers and professionals, the center encourages projects contributing to national interests, economic growth, and development. With state-of-the-art facilities and a commitment to excellence, SUST Research Center plays a pivotal role in propelling the university's academic and research standing. Its collaborative approach and dedication to impactful projects position it as a vital contributor to the scientific landscape within and beyond Bangladesh."
+        ),
     )
 
 }

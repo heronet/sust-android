@@ -26,14 +26,16 @@ fun CategoryItem(category: CampusCategory, onClick: () -> Unit) {
             .fillMaxWidth()
             .clickable { onClick() }
     ) {
-        Icon(
-            imageVector = category.imageVector,
-            contentDescription = category.title,
-            modifier = Modifier
-                .width(84.dp)
-                .height(84.dp)
-                .padding(horizontal = 16.dp)
-        )
+        category.imageVector?.let {
+            Icon(
+                imageVector = it,
+                contentDescription = category.title,
+                modifier = Modifier
+                    .width(84.dp)
+                    .height(84.dp)
+                    .padding(horizontal = 16.dp)
+            )
+        }
         Column {
             Text(
                 text = category.title,
