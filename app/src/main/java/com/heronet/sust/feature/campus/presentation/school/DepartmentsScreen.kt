@@ -7,8 +7,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.heronet.sust.feature.campus.presentation.common.components.CategoryDetailedItem
 import com.heronet.sust.feature.campus.presentation.CampusViewModel
+import com.heronet.sust.feature.campus.presentation.common.components.CategoryDetailedItem
 
 @Composable
 fun DepartmentsScreen(schoolName: String) {
