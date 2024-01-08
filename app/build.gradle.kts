@@ -91,6 +91,12 @@ dependencies {
     // optional - Kotlin Extensions and Coroutines support for Room
     implementation("androidx.room:room-ktx:$roomVersion")
 
+    // Retrofit
+    val retrofit = "2.9.0"
+    implementation("com.squareup.retrofit2:retrofit:$retrofit")
+    implementation("com.squareup.retrofit2:converter-gson$retrofit")
+
+
 }
 
 // Allow references to generated code

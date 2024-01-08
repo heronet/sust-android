@@ -1,4 +1,4 @@
-package com.heronet.sust.feature.campus.usecase
+package com.heronet.sust.feature.campus.domain.usecase
 
 import com.heronet.sust.feature.campus.domain.repository.CampusRepository
 import com.heronet.sust.feature.campus.util.CampusCategory

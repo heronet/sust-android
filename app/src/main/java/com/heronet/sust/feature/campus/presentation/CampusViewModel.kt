@@ -2,7 +2,7 @@ package com.heronet.sust.feature.campus.presentation
 
 import androidx.lifecycle.ViewModel
 import com.heronet.sust.feature.campus.domain.model.Department
-import com.heronet.sust.feature.campus.usecase.CampusUseCases
+import com.heronet.sust.feature.campus.domain.usecase.CampusUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
