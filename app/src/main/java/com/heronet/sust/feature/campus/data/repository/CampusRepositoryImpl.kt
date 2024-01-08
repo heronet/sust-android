@@ -8,7 +8,6 @@ import com.heronet.sust.feature.campus.domain.model.SchoolEmployee
 import com.heronet.sust.feature.campus.domain.repository.CampusRepository
 import com.heronet.sust.feature.campus.util.CampusCategory
 import com.heronet.sust.feature.campus.util.Constants
-import kotlinx.coroutines.delay
 import javax.inject.Inject
 
 class CampusRepositoryImpl @Inject constructor(
@@ -28,7 +27,6 @@ class CampusRepositoryImpl @Inject constructor(
     }
 
     override suspend fun getCenterEmployees(centerName: String): List<CenterEmployee> {
-        delay(1000)
         return api.getCenterEmployees(centerName).map { it.toCenterEmployee() }
     }
 
