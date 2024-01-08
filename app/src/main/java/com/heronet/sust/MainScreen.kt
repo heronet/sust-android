@@ -21,7 +21,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
@@ -36,10 +35,14 @@ fun MainScreen() {
     val navController = rememberNavController()
 
     var canNavigateBack by remember { mutableStateOf(false) }
+    var title by remember {
+        mutableStateOf("SUST")
+    }
 
     DisposableEffect(navController) {
         val listener = NavController.OnDestinationChangedListener { controller, _, _ ->
             canNavigateBack = controller.previousBackStackEntry != null
+            title = controller.currentBackStackEntry?.destination?.route ?: "SUST"
         }
         navController.addOnDestinationChangedListener(listener)
         onDispose {
@@ -52,7 +55,7 @@ fun MainScreen() {
             TopAppBar(
                 title = {
                     Text(
-                        text = stringResource(R.string.app_name),
+                        text = title,
                         fontWeight = FontWeight.Bold
                     )
                 },
