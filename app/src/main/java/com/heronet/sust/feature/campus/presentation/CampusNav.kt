@@ -13,6 +13,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import androidx.navigation.navigation
+import com.heronet.sust.feature.campus.presentation.center.CenterEmployeesScreen
 import com.heronet.sust.feature.campus.presentation.center.CentersScreen
 import com.heronet.sust.feature.campus.presentation.hall.HallsScreen
 import com.heronet.sust.feature.campus.presentation.office.OfficesScreen
@@ -83,8 +84,8 @@ fun NavGraphBuilder.campusNav(navController: NavHostController) {
             route = "${MainRoutes.Campus.route}/${CampusRoutes.Centers.route}/{center}",
             arguments = listOf(navArgument(name = "center") { type = NavType.StringType })
         ) { backStackEntry ->
-            val center = backStackEntry.arguments?.getString("center")
-            Text(text = "TODO: $center Employees")
+            val center = backStackEntry.arguments?.getString("center")!!
+            CenterEmployeesScreen(center)
         }
 
         // Halls Routes

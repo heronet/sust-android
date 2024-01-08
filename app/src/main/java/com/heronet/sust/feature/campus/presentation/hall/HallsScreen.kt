@@ -1,5 +1,6 @@
 package com.heronet.sust.feature.campus.presentation.hall
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -21,12 +22,14 @@ fun HallsScreen(navHostController: NavHostController) {
         campusViewModel.getHalls()
     }
 
-    LazyColumn(
-        modifier = Modifier.fillMaxSize()
-    ) {
-        items(halls) { hall ->
-            CategoryItem(hall) {
-                navHostController.navigate("${MainRoutes.Campus.route}/${CampusRoutes.Halls.route}/${hall.title}")
+    Box(modifier = Modifier.fillMaxSize()) {
+        LazyColumn(
+            modifier = Modifier.fillMaxSize()
+        ) {
+            items(halls) { hall ->
+                CategoryItem(hall) {
+                    navHostController.navigate("${MainRoutes.Campus.route}/${CampusRoutes.Halls.route}/${hall.title}")
+                }
             }
         }
     }

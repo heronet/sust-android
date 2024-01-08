@@ -9,12 +9,12 @@ import javax.inject.Inject
 @HiltViewModel
 class CampusViewModel @Inject constructor(
     private val useCases: CampusUseCases
-): ViewModel() {
+) : ViewModel() {
+
     fun getSchools() = useCases.getSchools()
     fun getDepartments(school: String): List<Department> {
         return useCases.getDepartments(school)
     }
-
     fun getHalls() = useCases.getHalls()
 
     fun getOffices() = useCases.getOffices()

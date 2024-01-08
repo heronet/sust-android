@@ -8,13 +8,13 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface CampusApi {
-    @GET("/employees?category={center}")
-    suspend fun getCenterEmployees(@Query("center") centerName: String): List<CenterEmployeeDto>
-    @GET("/employees?category={hall}")
-    suspend fun getHallEmployees(@Query("hall") hallName: String): List<HallEmployeeDto>
-    @GET("/employees?category={office}")
-    suspend fun getOfficeEmployees(@Query("office") officeName: String): List<OfficeEmployeeDto>
-    @GET("/employees?category={school}")
-    suspend fun getSchoolEmployees(@Query("school") schoolName: String): List<SchoolEmployeeDto>
+    @GET("employees/center")
+    suspend fun getCenterEmployees(@Query("title") centerName: String): List<CenterEmployeeDto>
+    @GET("employees/hall")
+    suspend fun getHallEmployees(@Query("title") hallName: String): List<HallEmployeeDto>
+    @GET("employees/office")
+    suspend fun getOfficeEmployees(@Query("title") officeName: String): List<OfficeEmployeeDto>
+    @GET("employees/school")
+    suspend fun getSchoolEmployees(@Query("title") schoolName: String): List<SchoolEmployeeDto>
 
 }

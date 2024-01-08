@@ -1,5 +1,6 @@
 package com.heronet.sust.feature.campus.presentation.center
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -20,15 +21,17 @@ fun CentersScreen(navController: NavHostController) {
         campusViewModel.getCenters()
     }
 
-    LazyColumn(
-        modifier = Modifier.fillMaxSize()
-    ) {
-        items(centers) { center ->
-            CategoryDetailedItem(
-                title = center.title,
-                description = center.description
-            ) {
-                navController.navigate("${MainRoutes.Campus.route}/${CampusRoutes.Centers.route}/${center.title}")
+    Box(modifier = Modifier.fillMaxSize()) {
+        LazyColumn(
+            modifier = Modifier.fillMaxSize()
+        ) {
+            items(centers) { center ->
+                CategoryDetailedItem(
+                    title = center.title,
+                    description = center.description
+                ) {
+                    navController.navigate("${MainRoutes.Campus.route}/${CampusRoutes.Centers.route}/${center.title}")
+                }
             }
         }
     }
