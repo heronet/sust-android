@@ -6,7 +6,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
-import com.heronet.sust.core.presentation.components.CategoryItem
+import com.heronet.sust.feature.campus.presentation.common.components.CategoryItem
 import com.heronet.sust.feature.campus.util.Constants
 import com.heronet.sust.navigation.util.MainRoutes
 

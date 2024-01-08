@@ -1,4 +1,4 @@
-package com.heronet.sust.core.presentation.components
+package com.heronet.sust.feature.campus.presentation.common.components
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.clickable

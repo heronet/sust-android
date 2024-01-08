@@ -8,7 +8,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import com.heronet.sust.core.presentation.components.CategoryDetailedItem
+import com.heronet.sust.feature.campus.presentation.common.components.CategoryDetailedItem
 import com.heronet.sust.feature.campus.presentation.CampusViewModel
 import com.heronet.sust.feature.campus.util.CampusRoutes
 import com.heronet.sust.navigation.util.MainRoutes
