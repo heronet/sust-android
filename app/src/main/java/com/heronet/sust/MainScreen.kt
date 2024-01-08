@@ -24,58 +24,20 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.heronet.sust.navigation.AppBar
 import com.heronet.sust.navigation.BottomNavBar
 import com.heronet.sust.navigation.MainNavHost
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen() {
-    val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
 
     val navController = rememberNavController()
-
-    var canNavigateBack by remember { mutableStateOf(false) }
-    var title by remember {
-        mutableStateOf("SUST")
-    }
-
-    DisposableEffect(navController) {
-        val listener = NavController.OnDestinationChangedListener { controller, _, _ ->
-            canNavigateBack = controller.previousBackStackEntry != null
-            title = controller.currentBackStackEntry?.destination?.route ?: "SUST"
-        }
-        navController.addOnDestinationChangedListener(listener)
-        onDispose {
-            navController.removeOnDestinationChangedListener(listener)
-        }
-    }
+    val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
 
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = {
-                    Text(
-                        text = title,
-                        fontWeight = FontWeight.Bold
-                    )
-                },
-                actions = {
-                    IconButton(onClick = { /*TODO*/ }) {
-                        Icon(imageVector = Icons.Default.Search, contentDescription = "Search")
-                    }
-                },
-                scrollBehavior = scrollBehavior,
-                navigationIcon = {
-                    if (canNavigateBack) {
-                        IconButton(onClick = { navController.navigateUp() }) {
-                            Icon(
-                                imageVector = Icons.Filled.ArrowBack,
-                                contentDescription = "Back"
-                            )
-                        }
-                    }
-                }
-            )
+            AppBar(navController = navController, scrollBehavior)
         },
         bottomBar = {
             BottomNavBar(navController)
