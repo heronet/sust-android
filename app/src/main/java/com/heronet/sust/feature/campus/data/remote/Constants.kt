@@ -1,5 +1,5 @@
 package com.heronet.sust.feature.campus.data.remote
 
 object Constants {
-    const val BASE_URL = "http://192.168.176.95:3000"
+    const val BASE_URL = "https://sustapi-t5in5dp7va-uc.a.run.app/api"
 }
