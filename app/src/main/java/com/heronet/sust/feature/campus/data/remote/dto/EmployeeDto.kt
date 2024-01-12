@@ -9,9 +9,10 @@ data class EmployeeDto(
     val phone: String,
     val email: String,
     val website: String? = null,
-    val workplaceTitle: String
+    val imageUrl: String? = null,
+    val workplaceTitle: String,
 )
 
 fun EmployeeDto.toEmployee() = Employee(
-    id, name, jobTitle, phone, email, website, workplaceTitle
+    id, name, jobTitle, phone, email, website, imageUrl, workplaceTitle
 )

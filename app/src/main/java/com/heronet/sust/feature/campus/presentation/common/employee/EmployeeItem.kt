@@ -1,5 +1,7 @@
 package com.heronet.sust.feature.campus.presentation.common.employee
 
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -25,9 +27,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.heronet.sust.feature.campus.domain.model.Employee
+
 
 @Composable
 fun EmployeeItem(
@@ -40,19 +44,23 @@ fun EmployeeItem(
         ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.fillMaxWidth().padding(top = 8.dp).padding(start = 16.dp)
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 8.dp)
+                    .padding(start = 16.dp)
             ) {
                 AsyncImage(
-                    model = "https://www.sust.edu/uploads/profile-images/1513593908.jpg",
+                    model = employee.imageUrl
+                        ?: "https://www.sust.edu/uploads/profile-images/1513593908.jpg",
                     contentDescription = "image",
                     modifier = Modifier
                         .width(96.dp)
                         .height(96.dp)
                         .clip(RoundedCornerShape(8.dp)),
-                    contentScale = ContentScale.Fit
+                    contentScale = ContentScale.Fit,
                 )
                 Column(
-                    Modifier.padding(horizontal = 8.dp)
+                    Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
                 ) {
                     IconText(imageVector = Icons.Default.Person, text = employee.name)
                     IconText(imageVector = Icons.Default.Work, text = employee.jobTitle)
@@ -60,7 +68,7 @@ fun EmployeeItem(
                     IconText(imageVector = Icons.Default.AlternateEmail, text = employee.email)
                 }
             }
-            ActionRow()
+            ActionRow(employee.email, employee.phone, employee.website)
         }
     }
 }
@@ -84,18 +92,41 @@ fun IconText(imageVector: ImageVector, text: String) {
 }
 
 @Composable
-fun ActionRow() {
+fun ActionRow(email: String, phone: String, website: String?) {
     Row(
         modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
     ) {
-        Button(onClick = { /*TODO*/ }) {
+        val context = LocalContext.current
+        Button(
+            onClick = {
+                val intent = Intent(Intent.ACTION_DIAL)
+                intent.setData(Uri.parse("tel:$phone"))
+                context.startActivity(intent, null)
+            }
+        ) {
             Text(text = "Call")
         }
-        OutlinedButton(onClick = { /*TODO*/ }, modifier = Modifier.padding(horizontal = 8.dp)) {
+        OutlinedButton(
+            onClick = {
+                val intent = Intent(Intent.ACTION_SENDTO)
+                intent.setData(Uri.parse("mailto:$email"))
+                context.startActivity(intent, null)
+            },
+            modifier = Modifier.padding(horizontal = 8.dp)
+        ) {
             Text(text = "E-Mail")
         }
-        OutlinedButton(onClick = { /*TODO*/ }) {
-            Text(text = "SMS")
+        website.let {
+            OutlinedButton(
+                onClick = {
+                    val intent = Intent(Intent.ACTION_VIEW)
+                    intent.setData(Uri.parse(it))
+                    context.startActivity(intent, null)
+                },
+            ) {
+                Text(text = "Web")
+            }
         }
+
     }
 }
