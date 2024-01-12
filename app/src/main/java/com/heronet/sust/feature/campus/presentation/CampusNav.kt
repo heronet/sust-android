@@ -6,21 +6,20 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.animation.shrinkVertically
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutVertically
-import androidx.compose.material3.Text
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import androidx.navigation.navigation
-import com.heronet.sust.feature.campus.presentation.center.CenterEmployeesScreen
 import com.heronet.sust.feature.campus.presentation.center.CentersScreen
+import com.heronet.sust.feature.campus.presentation.common.employee.EmployeesScreen
 import com.heronet.sust.feature.campus.presentation.hall.HallsScreen
 import com.heronet.sust.feature.campus.presentation.office.OfficesScreen
 import com.heronet.sust.feature.campus.presentation.school.SchoolsScreen
-import com.heronet.sust.feature.campus.presentation.school.departments.DepartmentEmployeesScreen
 import com.heronet.sust.feature.campus.presentation.school.departments.DepartmentsScreen
 import com.heronet.sust.feature.campus.util.CampusRoutes
+import com.heronet.sust.feature.campus.util.EmployeeTypes
 import com.heronet.sust.navigation.util.MainRoutes
 
 fun NavGraphBuilder.campusNav(navController: NavHostController) {
@@ -55,16 +54,19 @@ fun NavGraphBuilder.campusNav(navController: NavHostController) {
             DepartmentsScreen(schoolName = school!!, navController)
         }
         composable(
-            route = "${MainRoutes.Campus.route}/${CampusRoutes.Schools.route}/{school}/{department}",
+            route = "${MainRoutes.Campus.route}/${CampusRoutes.Schools.route}/{school}/{${EmployeeTypes.Department.type}}",
             arguments = listOf(
                 navArgument("school") { type = NavType.StringType },
-                navArgument("department") { type = NavType.StringType },
+                navArgument(EmployeeTypes.Department.type) { type = NavType.StringType },
             ),
             enterTransition = { expandVertically() + fadeIn() },
             exitTransition = { shrinkVertically() + fadeOut() }
         ) { backStackEntry ->
-            val department = backStackEntry.arguments?.getString("department")
-            DepartmentEmployeesScreen(departmentName = department!!)
+            val department = backStackEntry.arguments?.getString(EmployeeTypes.Department.type)
+            EmployeesScreen(
+                workplaceType = EmployeeTypes.Department.type,
+                workplaceTitle = department!!
+            )
         }
 
         // Office Routes
@@ -77,11 +79,11 @@ fun NavGraphBuilder.campusNav(navController: NavHostController) {
         }
 
         composable(
-            route = "${MainRoutes.Campus.route}/${CampusRoutes.Offices.route}/{office}",
-            arguments = listOf(navArgument(name = "office") { type = NavType.StringType })
+            route = "${MainRoutes.Campus.route}/${CampusRoutes.Offices.route}/{${EmployeeTypes.Office.type}}",
+            arguments = listOf(navArgument(name = EmployeeTypes.Office.type) { type = NavType.StringType })
         ) { backStackEntry ->
-            val office = backStackEntry.arguments?.getString("office")
-            Text(text = "TODO: $office Employees")
+            val office = backStackEntry.arguments?.getString(EmployeeTypes.Office.type)
+            EmployeesScreen(workplaceType = EmployeeTypes.Center.type, workplaceTitle = office!!)
         }
 
         // Centers Routes
@@ -94,11 +96,13 @@ fun NavGraphBuilder.campusNav(navController: NavHostController) {
         }
 
         composable(
-            route = "${MainRoutes.Campus.route}/${CampusRoutes.Centers.route}/{center}",
-            arguments = listOf(navArgument(name = "center") { type = NavType.StringType })
+            route = "${MainRoutes.Campus.route}/${CampusRoutes.Centers.route}/{${EmployeeTypes.Center.type}}",
+            arguments = listOf(navArgument(name = EmployeeTypes.Center.type) {
+                type = NavType.StringType
+            })
         ) { backStackEntry ->
-            val center = backStackEntry.arguments?.getString("center")!!
-            CenterEmployeesScreen(center)
+            val center = backStackEntry.arguments?.getString(EmployeeTypes.Center.type)!!
+            EmployeesScreen(workplaceType = EmployeeTypes.Center.type, workplaceTitle = center)
         }
 
         // Halls Routes
@@ -111,11 +115,13 @@ fun NavGraphBuilder.campusNav(navController: NavHostController) {
         }
 
         composable(
-            route = "${MainRoutes.Campus.route}/${CampusRoutes.Halls.route}/{hall}",
-            arguments = listOf(navArgument(name = "hall") { type = NavType.StringType })
+            route = "${MainRoutes.Campus.route}/${CampusRoutes.Halls.route}/{${EmployeeTypes.Hall.type}}",
+            arguments = listOf(navArgument(name = EmployeeTypes.Hall.type) {
+                type = NavType.StringType
+            })
         ) { backStackEntry ->
-            val hall = backStackEntry.arguments?.getString("hall")
-            Text(text = "TODO: $hall Employees")
+            val hall = backStackEntry.arguments?.getString(EmployeeTypes.Hall.type)
+            EmployeesScreen(workplaceType = EmployeeTypes.Hall.type, workplaceTitle = hall!!)
         }
     }
 }

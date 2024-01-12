@@ -1,6 +1,5 @@
 package com.heronet.sust.feature.campus.data.repository
 
-import android.util.Log
 import com.heronet.sust.feature.campus.data.local.database.CampusDao
 import com.heronet.sust.feature.campus.data.remote.CampusApi
 import com.heronet.sust.feature.campus.data.remote.dto.toEmployee
@@ -24,18 +23,17 @@ class CampusRepositoryImpl @Inject constructor(
     override fun getDepartments(school: String) =
         Constants.departments.filter { dept -> dept.school == school }
 
-    override fun getDepartmentEmployees(department: String): Flow<Resource<List<Employee>>> = flow {
+    override fun getEmployees(workplaceType: String, workplaceTitle: String): Flow<Resource<List<Employee>>> = flow {
         emit(Resource.Loading())
-        val localEmployees = dao.getEmployees(department)
-        emit(Resource.Success(localEmployees))
-        Log.d("LOCL", localEmployees.size.toString())
+        val localEmployees = dao.getEmployees(workplaceTitle)
+        emit(Resource.Loading(localEmployees))
         try {
             val employees =
-                api.getEmployees(type = "department", title = department).map { it.toEmployee() }
+                api.getEmployees(type = workplaceType, title = workplaceTitle).map { it.toEmployee() }
             emit(Resource.Success(employees))
 
-            dao.deleteEmployees(department)
-            dao.insertDepartmentEmployees(employees)
+            dao.deleteEmployees(workplaceTitle)
+            dao.insertEmployees(employees)
         } catch (e: IOException) {
             emit(
                 Resource.Error(
@@ -60,13 +58,10 @@ class CampusRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun addDepartmentEmployee(employee: Employee) {
-        dao.insertDepartmentEmployee(employee)
+    override suspend fun addEmployee(employee: Employee) {
+        dao.insertEmployee(employee)
     }
 
-    override suspend fun getCenterEmployees(centerName: String): List<Employee> {
-        return api.getEmployees(type = "center", title = centerName).map { it.toEmployee() }
-    }
 
     override fun getHalls(): List<CampusCategory> = Constants.halls
     override fun getOffices(): List<CampusCategory> = Constants.offices

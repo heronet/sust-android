@@ -9,10 +9,8 @@ import kotlinx.coroutines.flow.Flow
 interface CampusRepository {
     fun getSchools(): List<CampusCategory>
     fun getDepartments(school: String): List<Department>
-    fun getDepartmentEmployees(department: String): Flow<Resource<List<Employee>>>
-    suspend fun addDepartmentEmployee(employee: Employee)
-
-    suspend fun getCenterEmployees(centerName: String): List<Employee>
+    fun getEmployees(workplaceType: String, workplaceTitle: String): Flow<Resource<List<Employee>>>
+    suspend fun addEmployee(employee: Employee)
 
     fun getHalls(): List<CampusCategory>
 

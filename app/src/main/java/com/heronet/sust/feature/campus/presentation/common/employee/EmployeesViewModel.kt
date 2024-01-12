@@ -1,4 +1,4 @@
-package com.heronet.sust.feature.campus.presentation.school.departments
+package com.heronet.sust.feature.campus.presentation.common.employee
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
@@ -12,24 +12,25 @@ import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 @HiltViewModel
-class DepartmentViewModel @Inject constructor(
+class EmployeesViewModel @Inject constructor(
     private val useCases: CampusUseCases
 ) : ViewModel() {
-    private val _state = mutableStateOf(DepartmentEmployeesState())
-    val state: State<DepartmentEmployeesState> = _state
+    private val _state = mutableStateOf(EmployeesState())
+    val state: State<EmployeesState> = _state
 
-    fun getDepartmentEmployees(title: String) {
-        useCases.getDepartmentEmployees(title).onEach { resource ->
+    fun getEmployees(type: String, title: String) {
+        useCases.getEmployees(type, title).onEach { resource ->
             when (resource) {
                 is Resource.Error -> {
-                    _state.value = DepartmentEmployeesState(
+                    _state.value = EmployeesState(
                         error = resource.message ?: "An unexpected error occurred",
-                        employees = resource.data ?: emptyList()
+                        employees = resource.data ?: emptyList(),
+                        isLoading = false
                     )
                 }
 
                 is Resource.Loading -> {
-                    _state.value = DepartmentEmployeesState(
+                    _state.value = EmployeesState(
                         isLoading = true,
                         employees = resource.data ?: emptyList()
                     )
@@ -37,7 +38,11 @@ class DepartmentViewModel @Inject constructor(
 
                 is Resource.Success -> {
                     _state.value =
-                        DepartmentEmployeesState(employees = resource.data ?: emptyList())
+                        EmployeesState(
+                            employees = resource.data ?: emptyList(),
+                            isLoading = false,
+                            error = ""
+                        )
                 }
             }
         }.launchIn(viewModelScope)

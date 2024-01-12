@@ -1,4 +1,4 @@
-package com.heronet.sust.feature.campus.presentation.center
+package com.heronet.sust.feature.campus.presentation.common.employee
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -12,32 +12,30 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.heronet.sust.feature.campus.presentation.common.components.EmployeeItem
 
 @Composable
-fun CenterEmployeesScreen(centerName: String) {
-    val centerViewModel = hiltViewModel<CenterViewModel>()
+fun EmployeesScreen(workplaceType: String, workplaceTitle: String) {
+    val employeesViewModel = hiltViewModel<EmployeesViewModel>()
 
-    val state = centerViewModel.centerEmployeesState.value
+    val state = employeesViewModel.state.value
 
     LaunchedEffect(Unit) {
-        centerViewModel.getCenterEmployees(centerName)
+        employeesViewModel.getEmployees(workplaceType, workplaceTitle)
     }
     Box(modifier = Modifier.fillMaxSize()) {
         LazyColumn {
-            items(state.centerEmployees) {
+            items(state.employees) {
                 EmployeeItem(employee = it)
             }
         }
 
-        if (state.error.isNotBlank()) {
+        if (state.error.isNotBlank() && state.employees.isEmpty()) {
             Text(text = state.error, color = MaterialTheme.colorScheme.error)
         }
-        if (state.isLoading) {
+        if (state.isLoading && state.employees.isEmpty()) {
             CircularProgressIndicator(
                 modifier = Modifier.align(Alignment.Center)
             )
         }
     }
 }
-

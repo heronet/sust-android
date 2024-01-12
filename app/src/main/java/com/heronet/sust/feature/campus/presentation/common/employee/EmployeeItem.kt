@@ -1,4 +1,4 @@
-package com.heronet.sust.feature.campus.presentation.common.components
+package com.heronet.sust.feature.campus.presentation.common.employee
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column

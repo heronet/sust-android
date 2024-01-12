@@ -15,8 +15,8 @@ interface CampusDao {
     suspend fun deleteEmployees(workplaceTitle: String)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertDepartmentEmployee(employee: Employee)
+    suspend fun insertEmployee(employee: Employee)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertDepartmentEmployees(employees: List<Employee>)
+    suspend fun insertEmployees(employees: List<Employee>)
 }
