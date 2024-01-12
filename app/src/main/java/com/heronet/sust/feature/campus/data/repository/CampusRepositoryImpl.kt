@@ -2,9 +2,8 @@ package com.heronet.sust.feature.campus.data.repository
 
 import com.heronet.sust.feature.campus.data.local.database.CampusDao
 import com.heronet.sust.feature.campus.data.remote.CampusApi
-import com.heronet.sust.feature.campus.data.remote.dto.toCenterEmployee
-import com.heronet.sust.feature.campus.domain.model.CenterEmployee
-import com.heronet.sust.feature.campus.domain.model.SchoolEmployee
+import com.heronet.sust.feature.campus.data.remote.dto.toEmployee
+import com.heronet.sust.feature.campus.domain.model.Employee
 import com.heronet.sust.feature.campus.domain.repository.CampusRepository
 import com.heronet.sust.feature.campus.util.CampusCategory
 import com.heronet.sust.feature.campus.util.Constants
@@ -19,15 +18,15 @@ class CampusRepositoryImpl @Inject constructor(
     override fun getDepartments(school: String) =
         Constants.departments.filter { dept -> dept.school == school }
 
-    override suspend fun getSchoolEmployees(department: String): List<SchoolEmployee> {
-        return dao.getSchoolEmployees(department)
+    override suspend fun getDepartmentEmployees(department: String): List<Employee> {
+        return api.getEmployees(type =  "department", title = department).map { it.toEmployee() }
     }
-    override suspend fun addSchoolEmployee(schoolEmployee: SchoolEmployee) {
-        dao.insertSchoolEmployee(schoolEmployee)
+    override suspend fun addDepartmentEmployee(employee: Employee) {
+        dao.insertDepartmentEmployee(employee)
     }
 
-    override suspend fun getCenterEmployees(centerName: String): List<CenterEmployee> {
-        return api.getCenterEmployees(centerName).map { it.toCenterEmployee() }
+    override suspend fun getCenterEmployees(centerName: String): List<Employee> {
+        return api.getEmployees(type = "center", title = centerName).map { it.toEmployee() }
     }
 
     override fun getHalls(): List<CampusCategory> = Constants.halls

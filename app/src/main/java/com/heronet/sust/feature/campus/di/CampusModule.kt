@@ -7,10 +7,11 @@ import com.heronet.sust.feature.campus.data.remote.CampusApi
 import com.heronet.sust.feature.campus.data.remote.Constants
 import com.heronet.sust.feature.campus.data.repository.CampusRepositoryImpl
 import com.heronet.sust.feature.campus.domain.repository.CampusRepository
-import com.heronet.sust.feature.campus.domain.usecase.AddSchoolEmployee
+import com.heronet.sust.feature.campus.domain.usecase.AddDepartmentEmployee
 import com.heronet.sust.feature.campus.domain.usecase.CampusUseCases
 import com.heronet.sust.feature.campus.domain.usecase.GetCenterEmployees
 import com.heronet.sust.feature.campus.domain.usecase.GetCenters
+import com.heronet.sust.feature.campus.domain.usecase.GetDepartmentEmployees
 import com.heronet.sust.feature.campus.domain.usecase.GetDepartments
 import com.heronet.sust.feature.campus.domain.usecase.GetHalls
 import com.heronet.sust.feature.campus.domain.usecase.GetOffices
@@ -47,7 +48,8 @@ object CampusModule {
         getSchools = GetSchools(repository),
         getDepartments = GetDepartments(repository),
         getCenterEmployees = GetCenterEmployees(repository),
-        addSchoolEmployee = AddSchoolEmployee(repository),
+        addDepartmentEmployee = AddDepartmentEmployee(repository),
+        getDepartmentEmployees = GetDepartmentEmployees(repository),
         getHalls = GetHalls(repository),
         getOffices = GetOffices(repository),
         getCenters = GetCenters(repository)

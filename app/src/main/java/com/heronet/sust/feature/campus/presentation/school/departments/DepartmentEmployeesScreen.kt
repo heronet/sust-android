@@ -1,4 +1,4 @@
-package com.heronet.sust.feature.campus.presentation.center
+package com.heronet.sust.feature.campus.presentation.school.departments
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,17 +15,17 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.heronet.sust.feature.campus.presentation.common.components.EmployeeItem
 
 @Composable
-fun CenterEmployeesScreen(centerName: String) {
-    val centerViewModel = hiltViewModel<CenterViewModel>()
+fun DepartmentEmployeesScreen(departmentName: String) {
+    val departmentViewModel = hiltViewModel<DepartmentViewModel>()
 
-    val state = centerViewModel.centerEmployeesState.value
+    val state = departmentViewModel.state.value
 
     LaunchedEffect(Unit) {
-        centerViewModel.getCenterEmployees(centerName)
+        departmentViewModel.getDepartmentEmployees(departmentName)
     }
     Box(modifier = Modifier.fillMaxSize()) {
         LazyColumn {
-            items(state.centerEmployees) {
+            items(state.employees) {
                 EmployeeItem(employee = it)
             }
         }
@@ -40,4 +40,3 @@ fun CenterEmployeesScreen(centerName: String) {
         }
     }
 }
-

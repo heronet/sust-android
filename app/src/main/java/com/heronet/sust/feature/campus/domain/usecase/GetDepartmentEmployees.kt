@@ -8,18 +8,20 @@ import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
 import java.io.IOException
 
-class GetCenterEmployees(
+class GetDepartmentEmployees(
     private val repository: CampusRepository
 ) {
-    operator fun invoke(centerName: String): Flow<Resource<List<Employee>>> = flow {
+    operator fun invoke(title: String) : Flow<Resource<List<Employee>>> = flow {
         try {
             emit(Resource.Loading())
-            val employees = repository.getCenterEmployees(centerName)
+            val employees = repository.getDepartmentEmployees(title)
             emit(Resource.Success(employees))
-        } catch (e: HttpException) {
-            emit(Resource.Error(e.localizedMessage ?: "An unexpected error occurred"))
         } catch (e: IOException) {
-            emit(Resource.Error("Couldn't reach server. Check your internet connection."))
+            emit(Resource.Error(e.localizedMessage ?: "Couldn't reach server. Check your internet connection."))
+        } catch (e: HttpException) {
+            emit(Resource.Error(e.localizedMessage ?: "An unexpected HTTP error occurred"))
+        } catch (e: Exception) {
+            emit(Resource.Error(e.localizedMessage ?: "An unexpected error occurred"))
         }
     }
 }

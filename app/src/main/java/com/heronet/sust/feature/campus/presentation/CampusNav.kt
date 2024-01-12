@@ -17,8 +17,9 @@ import com.heronet.sust.feature.campus.presentation.center.CenterEmployeesScreen
 import com.heronet.sust.feature.campus.presentation.center.CentersScreen
 import com.heronet.sust.feature.campus.presentation.hall.HallsScreen
 import com.heronet.sust.feature.campus.presentation.office.OfficesScreen
-import com.heronet.sust.feature.campus.presentation.school.DepartmentsScreen
 import com.heronet.sust.feature.campus.presentation.school.SchoolsScreen
+import com.heronet.sust.feature.campus.presentation.school.departments.DepartmentEmployeesScreen
+import com.heronet.sust.feature.campus.presentation.school.departments.DepartmentsScreen
 import com.heronet.sust.feature.campus.util.CampusRoutes
 import com.heronet.sust.navigation.util.MainRoutes
 
@@ -51,7 +52,19 @@ fun NavGraphBuilder.campusNav(navController: NavHostController) {
             exitTransition = { shrinkVertically() + fadeOut() }
         ) { backStackEntry ->
             val school = backStackEntry.arguments?.getString("school")
-            DepartmentsScreen(schoolName = school!!)
+            DepartmentsScreen(schoolName = school!!, navController)
+        }
+        composable(
+            route = "${MainRoutes.Campus.route}/${CampusRoutes.Schools.route}/{school}/{department}",
+            arguments = listOf(
+                navArgument("school") { type = NavType.StringType },
+                navArgument("department") { type = NavType.StringType },
+            ),
+            enterTransition = { expandVertically() + fadeIn() },
+            exitTransition = { shrinkVertically() + fadeOut() }
+        ) { backStackEntry ->
+            val department = backStackEntry.arguments?.getString("department")
+            DepartmentEmployeesScreen(departmentName = department!!)
         }
 
         // Office Routes
