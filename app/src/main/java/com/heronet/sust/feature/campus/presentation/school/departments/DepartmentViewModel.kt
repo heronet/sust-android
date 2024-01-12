@@ -14,21 +14,30 @@ import javax.inject.Inject
 @HiltViewModel
 class DepartmentViewModel @Inject constructor(
     private val useCases: CampusUseCases
-): ViewModel() {
+) : ViewModel() {
     private val _state = mutableStateOf(DepartmentEmployeesState())
     val state: State<DepartmentEmployeesState> = _state
 
     fun getDepartmentEmployees(title: String) {
         useCases.getDepartmentEmployees(title).onEach { resource ->
-            when(resource) {
+            when (resource) {
                 is Resource.Error -> {
-                    _state.value = DepartmentEmployeesState(error = resource.message ?: "An unexpected error occurred")
+                    _state.value = DepartmentEmployeesState(
+                        error = resource.message ?: "An unexpected error occurred",
+                        employees = resource.data ?: emptyList()
+                    )
                 }
+
                 is Resource.Loading -> {
-                    _state.value = DepartmentEmployeesState(isLoading = true)
+                    _state.value = DepartmentEmployeesState(
+                        isLoading = true,
+                        employees = resource.data ?: emptyList()
+                    )
                 }
+
                 is Resource.Success -> {
-                    _state.value = DepartmentEmployeesState(employees = resource.data ?: emptyList())
+                    _state.value =
+                        DepartmentEmployeesState(employees = resource.data ?: emptyList())
                 }
             }
         }.launchIn(viewModelScope)

@@ -30,10 +30,10 @@ fun DepartmentEmployeesScreen(departmentName: String) {
             }
         }
 
-        if (state.error.isNotBlank()) {
+        if (state.error.isNotBlank() && state.employees.isEmpty()) {
             Text(text = state.error, color = MaterialTheme.colorScheme.error)
         }
-        if (state.isLoading) {
+        if (state.isLoading && state.employees.isEmpty()) {
             CircularProgressIndicator(
                 modifier = Modifier.align(Alignment.Center)
             )

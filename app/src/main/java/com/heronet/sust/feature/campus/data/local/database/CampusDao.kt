@@ -8,9 +8,15 @@ import com.heronet.sust.feature.campus.domain.model.Employee
 
 @Dao
 interface CampusDao {
-    @Query("SELECT * FROM employee WHERE workplaceTitle = :department")
-    suspend fun getDepartmentEmployees(department: String): List<Employee>
+    @Query("SELECT * FROM employee WHERE workplaceTitle = :workplaceTitle")
+    suspend fun getEmployees(workplaceTitle: String): List<Employee>
+
+    @Query("DELETE FROM employee WHERE workplaceTitle = :workplaceTitle")
+    suspend fun deleteEmployees(workplaceTitle: String)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertDepartmentEmployee(employee: Employee)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertDepartmentEmployees(employees: List<Employee>)
 }
