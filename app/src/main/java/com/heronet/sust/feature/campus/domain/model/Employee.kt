@@ -12,6 +12,6 @@ data class Employee(
     val phone: String,
     val email: String,
     val website: String? = null,
-    val imageUrl: String? = null,
+    val imageUrl: String,
     val workplaceTitle: String
 )

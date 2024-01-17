@@ -34,7 +34,7 @@ object CampusModule {
             app,
             CampusDatabase::class.java,
             CampusDatabase.DATABASE_NAME
-        ).build()
+        ).fallbackToDestructiveMigration().build()
 
     @Provides
     @Singleton

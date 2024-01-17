@@ -28,8 +28,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import com.heronet.sust.R
 import com.heronet.sust.feature.campus.domain.model.Employee
 
 
@@ -50,15 +52,16 @@ fun EmployeeItem(
                     .padding(start = 16.dp)
             ) {
                 AsyncImage(
-                    model = employee.imageUrl
-                        ?: "https://www.sust.edu/uploads/profile-images/1513593908.jpg",
+                    model = employee.imageUrl,
                     contentDescription = "image",
                     modifier = Modifier
                         .width(96.dp)
                         .height(96.dp)
                         .clip(RoundedCornerShape(8.dp)),
                     contentScale = ContentScale.Fit,
+                    error = painterResource(id = R.drawable.person),
                 )
+
                 Column(
                     Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
                 ) {
