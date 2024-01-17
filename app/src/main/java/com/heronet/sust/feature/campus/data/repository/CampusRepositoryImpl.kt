@@ -7,7 +7,7 @@ import com.heronet.sust.feature.campus.domain.model.Employee
 import com.heronet.sust.feature.campus.domain.repository.CampusRepository
 import com.heronet.sust.feature.campus.util.CampusCategory
 import com.heronet.sust.feature.campus.util.Constants
-import com.heronet.sust.feature.common.Resource
+import com.heronet.sust.feature.common.util.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
